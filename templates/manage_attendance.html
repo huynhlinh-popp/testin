@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Manage Attendance</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>UID</th>
+                <th>Name</th>
+                <th>Check-in Time</th>
+                <th>Check-out Time</th>
+                <th>Total Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for attendance in attendances %}
+            <tr>
+                <td>{{ attendance.employee.uid }}</td>
+                <td>{{ attendance.employee.name }}</td>
+                <td>{{ attendance.checkin_time }}</td>
+                <td>{{ attendance.checkout_time }}</td>
+                <td>{{ attendance.total_time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
